@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -11,6 +12,8 @@ Route::view('/individual', 'frontend.contact')->name('individual');
 Route::view('/about', 'frontend.about')->name('about');
 Route::view('/help', 'frontend.contact')->name('help');
 Route::view('/contact', 'frontend.contact')->name('contact');
+Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
+
 
 
 
