@@ -17,7 +17,7 @@
             Run your organisation<br class="hidden sm:block"> in one calm place.
           </h1>
           <p class="mt-6 max-w-xl text-lg text-slate-600">
-            Memberships, committees, meetings, events, projects, assets, documents, and finances — beautifully connected.
+          Azonation brings together memberships, renewals, attendance, meetings, events, projects, accounting, documents and more — so leaders can focus on growth, not paperwork.
           </p>
 
           <div class="mt-8 flex items-center gap-3">
