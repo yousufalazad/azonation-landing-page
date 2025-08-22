@@ -58,7 +58,7 @@
 
             <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {{-- Terms --}}
-              <a href="{{ url('/terms') }}" class="group block rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md hover:border-blue-300 transition">
+              <a href="{{ url('/legal/terms') }}" class="group block rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md hover:border-blue-300 transition">
                 <div class="flex items-start justify-between">
                   <h3 class="text-lg font-semibold text-slate-900">Terms of Service</h3>
                   <span class="rounded-full px-2 py-0.5 text-[11px] font-medium bg-blue-50 text-blue-700 border border-blue-100">Core</span>
@@ -70,7 +70,7 @@
               </a>
 
               {{-- Privacy --}}
-              <a href="{{ url('/privacy') }}" class="group block rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md hover:border-blue-300 transition">
+              <a href="{{ url('/legal/privacy') }}" class="group block rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md hover:border-blue-300 transition">
                 <div class="flex items-start justify-between">
                   <h3 class="text-lg font-semibold text-slate-900">Privacy Policy</h3>
                   <span class="rounded-full px-2 py-0.5 text-[11px] font-medium bg-blue-50 text-blue-700 border border-blue-100">Core</span>
@@ -102,7 +102,7 @@
 
             <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {{-- GDPR Summary --}}
-              <a href="{{ url('/gdpr') }}" class="group block rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md hover:border-blue-300 transition">
+              <a href="{{ url('/legal/gdpr') }}" class="group block rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md hover:border-blue-300 transition">
                 <h3 class="text-lg font-semibold text-slate-900">GDPR Compliance</h3>
                 <p class="mt-2 text-sm text-slate-600">
                   Our commitment to EU/UK GDPR: principles, rights, hosting, and transfers.
