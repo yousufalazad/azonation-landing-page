@@ -26,7 +26,7 @@
               Start for free
             </a>
             <a href="#demo" class="inline-flex items-center font-semibold text-slate-900 hover:underline">
-              Watch the app
+              Watch the video
               <svg class="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
               </svg>
@@ -461,7 +461,7 @@
           @endfor
         </div>
       </div>
-      <p class="mt-4 text-center text-sm text-slate-600">A two‑minute walk‑through of Azonation (coming soon).</p>
+      <p class="mt-4 text-center text-sm text-slate-600">A one‑minute walk‑through of Azonation (coming soon).</p>
     </div>
   </section>
 
@@ -473,9 +473,9 @@
       <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 text-center">Teams feel calmer with Azonation</h2>
       <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         @foreach ([
-          ['quote' => 'We consolidated three tools into one. Zero chaos.', 'name' => 'Amelia R.', 'role' => 'Operations Lead', 'color'=>'bg-emerald-100 text-emerald-700'],
+          ['quote' => 'Managing memberships, meetings and events is effortless now. Attendance, minutes, and follow-ups all in one place.', 'name' => 'Adnan R.', 'role' => 'Operations Lead', 'color'=>'bg-emerald-100 text-emerald-700'],
           ['quote' => 'Membership renewals finally run themselves.', 'name' => 'Hassan M.', 'role' => 'Secretary', 'color'=>'bg-sky-100 text-sky-700'],
-          ['quote' => 'Meetings are on‑time and documented. Bliss.', 'name' => 'Sophie L.', 'role' => 'Project Manager', 'color'=>'bg-indigo-100 text-indigo-700'],
+          ['quote' => 'Meetings are on‑time and documented. Bliss.', 'name' => 'Jahid I.', 'role' => 'Project Manager', 'color'=>'bg-indigo-100 text-indigo-700'],
         ] as $t)
           <figure class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
             <div class="flex items-center gap-3">

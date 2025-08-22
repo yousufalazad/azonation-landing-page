@@ -15,6 +15,20 @@ Route::view('/contact', 'frontend.contact')->name('contact');
 Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
 
 
+// --- Legal hub (keep existing name) ---
+Route::view('/legal', 'legal.legal')->name('legal');
+
+// --- Namespaced legal docs ---
+Route::prefix('legal')->name('legal.')->group(function () {
+    Route::view('/terms',         'legal.terms')->name('terms');
+    Route::view('/privacy',       'legal.privacy')->name('privacy');
+    Route::view('/dpa',           'legal.dpa')->name('dpa');
+    Route::view('/gdpr',          'legal.gdpr')->name('gdpr');
+    Route::view('/cookies',       'legal.cookies')->name('cookies');
+    Route::view('/security',      'legal.security')->name('security');
+    Route::view('/subprocessors', 'legal.subprocessors')->name('subprocessors');
+    Route::view('/requests',      'legal.requests')->name('requests');
+});
 
 
 Route::get('/dashboard', function () {
@@ -27,4 +41,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

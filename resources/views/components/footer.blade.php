@@ -19,9 +19,9 @@
         <h3 class="text-sm font-semibold text-slate-900 mb-3">Company</h3>
         <ul class="space-y-2 text-sm text-slate-600">
           <li><a href="#features" class="hover:text-slate-900">Features</a></li>
-          <li><a href="#pricing" class="hover:text-slate-900">Pricing</a></li>
+          <li><a href="/pricing" class="hover:text-slate-900">Pricing</a></li>
           <li><a href="#testimonials" class="hover:text-slate-900">Testimonials</a></li>
-          <li><a href="#video" class="hover:text-slate-900">Product video</a></li>
+          <li><a href="#demo" class="hover:text-slate-900">Product video</a></li>
           <li><a href="/contact" class="hover:text-slate-900">Contact us</a></li>
           <li><a href="/about" class="hover:text-slate-900">About us</a></li>
         </ul>
@@ -31,11 +31,29 @@
       <div>
         <h3 class="text-sm font-semibold text-slate-900 mb-3">Legal</h3>
         <ul class="space-y-2 text-sm text-slate-600">
-          <li><a href="/terms" class="hover:text-slate-900">Terms</a></li>
-          <li><a href="/privacy" class="hover:text-slate-900">Privacy</a></li>
-          <li>
-            <a href="mailto:hello@azonation.com" class="hover:text-slate-900">Help Centre</a>
+
+          <li><a href="{{ url('/legal') }}" class="text-slate-600 hover:text-slate-900">Legal Centre</a></li>
+          <li><a href="{{ url('/legal/terms') }}" class="text-slate-600 hover:text-slate-900">Terms of Service</a></li>
+          <li><a href="{{ url('/legal/privacy') }}" class="text-slate-600 hover:text-slate-900">Privacy Policy</a></li>
+          <li><a href="{{ url('/legal/dpa') }}" class="text-slate-600 hover:text-slate-900">Data Processing Addendum</a>
           </li>
+          <li><a href="{{ url('/legal/gdpr') }}" class="text-slate-600 hover:text-slate-900">GDPR Compliance</a></li>
+          <li><a href="{{ url('/legal/cookies') }}" class="text-slate-600 hover:text-slate-900">Cookie Policy</a></li>
+          <li><a href="{{ url('/legal/security') }}" class="text-slate-600 hover:text-slate-900">Security Overview</a>
+          </li>
+          <li><a href="{{ url('/legal/subprocessors') }}" class="text-slate-600 hover:text-slate-900">Sub‑processors</a>
+          </li>
+          <li><a href="{{ url('/legal/requests') }}" class="text-slate-600 hover:text-slate-900">Data Requests</a></li>
+
+
+          {{-- <li><a href="/terms" class="hover:text-slate-900">Terms</a></li>
+          <li><a href="/privacy" class="hover:text-slate-900">Privacy</a></li>
+          <li><a href="/dpa" class="hover:text-slate-900">DPA</a></li>
+          <li><a href="/gdpr" class="hover:text-slate-900">GDPR</a></li>
+          <li><a href="/cookies" class="hover:text-slate-900">Cookies</a></li>
+          <li>
+            <a href="mailto:info@azonation.com" class="hover:text-slate-900">Help Centre</a>
+          </li> --}}
         </ul>
       </div>
     </div>
@@ -46,8 +64,8 @@
       {{-- Social (optional, remove if not needed) --}}
       <div class="flex items-center gap-4 text-slate-400">
         <!-- X (formerly Twitter) -->
-        <a href="https://x.com/AzonationWorld" class="hover:text-slate-600" aria-label="X (formerly Twitter)" target="_blank"
-          rel="noopener">
+        <a href="https://x.com/AzonationWorld" class="hover:text-slate-600" aria-label="X (formerly Twitter)"
+          target="_blank" rel="noopener">
           <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <!-- Clean X mark -->
             <path d="M2 2h4.7l5.6 7.9L17.5 2H22l-7.9 10.6L22 22h-4.7l-6-8.4L6.5 22H2l8.1-10.6L2 2z" />
@@ -71,8 +89,8 @@
         </a>
 
         <!-- Facebook -->
-        <a href="https://www.facebook.com/azonationworld/" class="hover:text-slate-600" aria-label="Facebook" target="_blank"
-          rel="noopener">
+        <a href="https://www.facebook.com/azonationworld/" class="hover:text-slate-600" aria-label="Facebook"
+          target="_blank" rel="noopener">
           <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path
               d="M22.675 0H1.325C.593 0 0 .593 0 1.326v21.348C0 23.406.593 24 1.325 24h11.497v-9.294H9.846V11.41h2.976V8.797c0-2.94 1.792-4.544 4.41-4.544 1.255 0 2.337.093 2.652.135v3.08h-1.82c-1.43 0-1.706.68-1.706 1.677v2.266h3.41l-.444 3.294h-2.966V24h5.82C23.407 24 24 23.406 24 22.674V1.326C24 .593 23.407 0 22.675 0z" />
