@@ -4,11 +4,21 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Azonation — Organisation Management SaaS</title>
+
+    {{-- SEO Title (long, descriptive) --}}
+    <title>Azonation — Organisation Management Solution | Memberships, Meetings, Events, Projects & Billing</title>
     <meta name="description"
         content="Azonation is a minimal, modern SaaS for organisation management — memberships, meetings, events, projects, billing and more. Start for free.">
     <meta name="robots" content="index,follow">
     <link rel="canonical" href="{{ url()->current() }}">
+
+    {{-- Favicon (multiple formats for best support) --}}
+    <link rel="icon" type="image/x-icon" href="{{ asset('images/favicon.ico') }}">
+    <link rel="icon" type="image/png" href="{{ asset('images/favicon.png') }}">
+    <link rel="apple-touch-icon" href="{{ asset('images/favicon.png') }}">
+
+    {{-- <img src="{{ asset('storage/images/azonation-logo.png') }}" alt="Azonation" class="h-7 w-auto"> --}}
+
 
     {{-- Open Graph / Twitter --}}
     <meta property="og:title" content="Azonation — Organisation Management SaaS">
