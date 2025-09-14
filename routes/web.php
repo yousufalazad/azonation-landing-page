@@ -7,10 +7,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'frontend.home')->name('home');
 Route::view('/pricing', 'frontend.pricing')->name('pricing');
-Route::view('/organisation', 'frontend.contact')->name('organization');
-Route::view('/individual', 'frontend.contact')->name('individual');
+Route::view('/organisation', 'frontend.organisation')->name('organization');
+Route::view('/how-to-use-organisation', 'frontend.how-to-use-organisation')->name('how-to-use-organisation');
+Route::view('/individual', 'frontend.individual')->name('individual');
+Route::view('/how-to-use-individual', 'frontend.how-to-use-individual')->name('how-to-use-individual');
 Route::view('/about', 'frontend.about')->name('about');
-Route::view('/help', 'frontend.contact')->name('help');
+Route::view('/help', 'frontend.help')->name('help');
 Route::view('/contact', 'frontend.contact')->name('contact');
 Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
 

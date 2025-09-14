@@ -15,7 +15,7 @@
         <!-- Desktop nav (same links, now inline) -->
         <ul class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-700" aria-label="Primary">
           <!-- Organization (mega) -->
-          <li class="relative" @mouseenter="openMenu = 'org'" @mouseleave="openMenu = (openMenu==='org'?null:openMenu)">
+          <li class="relative" @mouseenter="openMenu = 'org'" @focusin="openMenu = 'org'">
             <a href="{{ route('organization') }}" class="inline-flex items-center gap-2 hover:text-slate-900"
               :aria-expanded="(openMenu==='org').toString()">
               Organization
@@ -29,7 +29,7 @@
           </li>
 
           <!-- Individual (mega) -->
-          <li class="relative" @mouseenter="openMenu = 'ind'" @mouseleave="openMenu = (openMenu==='ind'?null:openMenu)">
+          <li class="relative" @mouseenter="openMenu = 'ind'" @focusin="openMenu = 'ind'">
             <a href="{{ route('individual') }}" class="inline-flex items-center gap-2 hover:text-slate-900"
               :aria-expanded="(openMenu==='ind').toString()">
               Individual
@@ -38,13 +38,11 @@
                 <path fill-rule="evenodd"
                   d="M5.23 7.21a.75.75 0 011.06.02L10 11.243l3.71-4.01a.75.75 0 111.08 1.04l-4.24 4.58a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z"
                   clip-rule="evenodd" />
-              </svg>
-            </a>
+              </svg> </a>
           </li>
 
           <!-- Help (mega) -->
-          <li class="relative" @mouseenter="openMenu = 'help'"
-            @mouseleave="openMenu = (openMenu==='help'?null:openMenu)">
+          <li class="relative" @mouseenter="openMenu = 'help'" @focusin="openMenu = 'help'">
             <button type="button" class="inline-flex items-center gap-2 hover:text-slate-900"
               :aria-expanded="(openMenu==='help').toString()">
               Help
@@ -314,7 +312,7 @@
                       </a></li>
                   </ul>
                   <div class="mt-6">
-                    <a href="{{ route('contact') }}"
+                    <a href="{{ route('help') }}"
                       class="inline-flex items-center rounded-xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800">
                       Visit Help Centre
                     </a>
@@ -322,7 +320,6 @@
                 </div>
               </div>
             </div>
-            <!-- /HELP PANEL -->
           </div>
         </div>
       </div>
