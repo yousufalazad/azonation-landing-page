@@ -6,6 +6,8 @@ use App\Models\Contact;
 use App\Models\ContactMessage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Log;
+
 
 class ContactController extends Controller
 {
@@ -24,36 +26,67 @@ class ContactController extends Controller
                     }
                 },
             ],
-            'phone'     => ['nullable', 'string', 'max:40'],
-            'subject'   => ['required', 'string', 'max:150'],
-            'message'   => ['required', 'string', 'max:5000'],
-            'consent'   => ['accepted'],
-            'website'   => ['nullable', 'max:0'], // honeypot
+            'phone'   => ['nullable', 'string', 'max:40'],
+            'subject' => ['required', 'string', 'max:150'],
+            'message' => ['required', 'string', 'max:5000'],
+            'consent' => ['accepted'],
+            'website' => ['nullable', 'max:0'], // honeypot
         ]);
 
+        // Honeypot (silent success to bots)
         if ($request->filled('website')) {
             return back()->with('success', 'Thanks!')->withInput();
         }
 
-        // Save to DB
-        ContactMessage::create([
+        // Persist
+        $record = ContactMessage::create([
             ...$data,
             'consent'    => $request->boolean('consent'),
             'ip_address' => $request->ip(),
             'user_agent' => $request->userAgent(),
         ]);
 
-        // Send email (configure mail in .env)
-        Mail::raw(
-            "From: {$data['full_name']} <{$data['email']}>\nPhone: {$data['phone']}\n\n{$data['message']}",
-            function ($message) use ($data) {
-                $message->to('info@azonation.com', 'Azonation')
-                    ->subject('[Contact] ' . $data['subject'])
-                    ->replyTo($data['email'], $data['full_name']);
-            }
-        );
+        // A simple reference for both emails (optional)
+        $ref = 'AZTN-' . now()->format('Ymd') . '-' . str_pad((string)$record->id, 5, '0', STR_PAD_LEFT);
 
-        return back()->with('success', 'Thanks for your message — we’ll get back to you shortly.');
+        // --- Admin notification (to your team) ---
+        try {
+            Mail::html(
+                view('emails.contact.admin', [
+                    'ref'   => $ref,
+                    'data'  => $data,
+                    'record'=> $record,
+                ])->render(),
+                function ($message) use ($data, $ref) {
+                    $message->to('info@azonation.com', 'Azonation')
+                            ->subject('[Contact '.$ref.'] '.$data['subject'])
+                            ->replyTo($data['email'], $data['full_name']);
+                }
+            );
+        } catch (\Throwable $e) {
+            Log::error('Contact admin email failed', ['error' => $e->getMessage()]);
+            // Do not reveal email errors to the user; continue gracefully.
+        }
+
+        // --- User confirmation (copy to the sender) ---
+        try {
+            Mail::html(
+                view('emails.contact.user', [
+                    'ref'   => $ref,
+                    'data'  => $data,
+                ])->render(),
+                function ($message) use ($data) {
+                    $message->to($data['email'], $data['full_name'])
+                            ->subject('We received your message — Azonation')
+                            ->from('info@azonation.com', 'Azonation Support')
+                            ->replyTo('info@azonation.com', 'Azonation Support');
+                }
+            );
+        } catch (\Throwable $e) {
+            Log::warning('Contact user confirmation email failed', ['error' => $e->getMessage()]);
+        }
+
+        return back()->with('success', 'Thanks for your message — we’ve emailed you a copy and will get back shortly. Ref: '.$ref);
     }
 
 
